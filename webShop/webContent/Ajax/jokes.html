@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chuck Norris 농담 보기 (jQuery AJAX)</title>
+<style>
+ body {
+   font-family: sans-serif;
+   margin: 20px;
+ }
+ h1 {
+   font-size: 24px;
+ }
+ .joke-container {
+   border: 1px solid #ccc;
+   padding: 15px;
+   max-width: 500px;
+   margin-bottom: 20px;
+ }
+ .joke-container p {
+   font-size: 16px;
+ }
+ #status {
+   font-style: italic;
+   color: #666;
+ }
+ button {
+   padding: 10px 15px;
+   font-size: 14px;
+   cursor: pointer;
+ }
+</style>
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>Chuck Norris 농담</h1>
+<p id="status">농담을 불러오는 중...</p>
+<div class="joke-container" id="joke-container">
+ <p id="joke-text"></p>
+</div>
+<button id="new-joke-btn">다음 농담 보기</button>
+
+<script>
+$(document).ready(function() {
+ function loadJoke() {
+   $('#status').text('농담을 불러오는 중...');
+   $('#joke-text').text('');
+
+   $.ajax({
+     url: 'https://api.chucknorris.io/jokes/random',
+     method: 'GET',
+     dataType: 'json',
+     success: function(data) {
+       $('#status').text('');
+       if (data && data.value) {
+         $('#joke-text').text(data.value);
+       } else {
+         $('#status').text('농담 데이터를 가져올 수 없습니다.');
+       }
+     },
+     error: function(xhr, status, error) {
+       $('#status').text('에러 발생: ' + error);
+     }
+   });
+ }
+
+ // 페이지 로드 시 첫 농담 불러오기
+ loadJoke();
+
+ // 버튼 클릭 시 새로운 농담 불러오기
+ $('#new-joke-btn').click(function() {
+   loadJoke();
+ });
+});
+</script>
+</body>
+</html>

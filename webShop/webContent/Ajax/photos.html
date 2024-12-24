@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>랜덤 이미지 목록 (jQuery AJAX)</title>
+<style>
+ body {
+   font-family: sans-serif;
+   margin: 20px;
+ }
+ h1 {
+   font-size: 24px;
+   margin-bottom: 15px;
+ }
+ #status {
+   font-style: italic;
+   color: #666;
+   margin-bottom: 20px;
+ }
+ .image-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+ }
+ .image-card {
+   border: 1px solid #ccc;
+   padding: 10px;
+   width: 240px;
+   box-sizing: border-box;
+   text-align: center;
+ }
+ .image-card img {
+   max-width: 100%;
+   height: auto;
+   display: block;
+   margin-bottom: 10px;
+ }
+ .author {
+   font-size: 14px;
+   color: #333;
+ }
+</style>
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h1>랜덤 이미지 목록</h1>
+<p id="status">이미지를 불러오는 중...</p>
+<div class="image-container" id="image-container"></div>
+
+<script>
+$(document).ready(function() {
+ // Lorem Picsum API: https://picsum.photos/
+ // https://picsum.photos/v2/list -> 이미지 목록 JSON 반환
+ $.ajax({
+   url: 'https://picsum.photos/v2/list?page=1&limit=8',
+   method: 'GET',
+   dataType: 'json',
+   success: function(data) {
+     $('#status').text('');
+     if ($.isArray(data) && data.length > 0) {
+       data.forEach(function(item) {
+         var card = $('<div class="image-card"></div>');
+         var img = $('<img />').attr('src', item.download_url).attr('alt', 'Random Image');
+         var author = $('<div class="author"></div>').text('Photo by: ' + item.author);
+
+         card.append(img);
+         card.append(author);
+
+         $('#image-container').append(card);
+       });
+     } else {
+       $('#status').text('이미지를 불러올 수 없습니다.');
+     }
+   },
+   error: function(xhr, status, error) {
+     $('#status').text('에러 발생: ' + error);
+   }
+ });
+});
+</script>
+</body>
+</html>

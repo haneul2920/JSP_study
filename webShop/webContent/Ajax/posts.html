@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSONPlaceholder 데이터 예제 (jQuery AJAX)</title>
+<style>
+ body {
+   font-family: sans-serif;
+   margin: 20px;
+ }
+ h1 {
+   font-size: 24px;
+ }
+ .post {
+   border: 1px solid #ccc;
+   padding: 10px;
+   margin-bottom: 10px;
+ }
+ .post h2 {
+   font-size: 18px;
+   margin: 0 0 5px;
+ }
+ .post p {
+   margin: 0;
+ }
+ #status {
+   font-style: italic;
+   color: #666;
+ }
+</style>
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>게시글 목록</h1>
+<p id="status">데이터를 불러오는 중...</p>
+<div id="posts"></div>
+
+<script>
+$(document).ready(function() {
+ $.ajax({
+   url: 'https://jsonplaceholder.typicode.com/posts',
+   method: 'GET',
+   dataType: 'json',
+   success: function(data) {
+     $('#status').text('');
+
+     if ($.isArray(data) && data.length > 0) {
+       // 앞부분 5개만 출력
+       data.slice(0, 5).forEach(function(post) {
+         var postDiv = $('<div class="post"></div>');
+         var title = $('<h2></h2>').text(post.title);
+         var body = $('<p></p>').text(post.body);
+
+         postDiv.append(title);
+         postDiv.append(body);
+         $('#posts').append(postDiv);
+       });
+     } else {
+       $('#status').text('데이터를 불러올 수 없습니다.');
+     }
+   },
+   error: function(xhr, status, error) {
+     $('#status').text('에러 발생: ' + error);
+   }
+ });
+});
+</script>
+</body>
+</html>
