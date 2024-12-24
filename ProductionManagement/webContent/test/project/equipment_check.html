@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>설비 점검</title>
+    <meta name="Equipment Inspection" content="설비 점검 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons1.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="equipment_check.css">
+</head>
+<body>
+    <div id="inspectionPage">
+        <div id="sidebar">
+            <button id="homeButton" onclick="goHome()"> 
+                <img src="images/homeicon.png" alt="홈 아이콘" class="icon">
+            </button>
+        </div>
+
+        <div class="page-content">
+            <header>
+                <h1>설비 점검</h1>
+            </header>
+
+            <section class="inspection-container">
+                <h2>설비 목록</h2>
+                <div class="inspection-item">
+                    <h3><a href="inspectionDetail.html?machine=1">기계 1</a></h3>
+                    <p>마지막 점검 날짜: 2024-12-01</p>
+                    <p>점검 상태: 양호</p>
+                </div>
+                <div class="inspection-item">
+                    <h3><a href="inspectionDetail.html?machine=2">기계 2</a></h3>
+                    <p>마지막 점검 날짜: 2024-12-02</p>
+                    <p>점검 상태: 점검 필요</p>
+                </div>
+                <!-- 추가 설비 항목들 -->
+            </section>
+        </div>
+    </div>
+    <script src="inspectionPage.js"></script>
+    <script>
+        function goHome() {
+            window.location.href = "index.html"; // index.html로 이동
+        }
+    </script>
+</body>
+</html>

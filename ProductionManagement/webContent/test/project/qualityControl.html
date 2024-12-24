@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>품질 관리</title>
+    <meta name="Quality Control" content="품질 관리 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons1.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="qualityControl.css">
+</head>
+<body>
+    <div id="qualityControlPage">
+        <!-- 사이드바 -->
+        <div id="sidebar">
+            <button id="homeButton" onclick="goHome()"> 
+                <img src="images/homeicon.png" alt="홈 아이콘" class="icon">
+            </button>
+        </div>
+
+        <!-- 품질 관리 헤더 -->
+        <div class="page-content">
+            <header>
+                <h1>품질 관리</h1>
+            </header>
+
+            <!-- 품질 관리 항목 -->
+            <section class="quality-control-container">
+                <h2>검사 항목 목록</h2>
+                <div class="quality-item">
+                    <h3>검사 항목 1</h3>
+                    <p>검사 일자: 2024-12-02</p>
+                    <p>검사 결과: 합격</p>
+                    <button class="view-details">상세 보기</button>
+                </div>
+                <div class="quality-item">
+                    <h3>검사 항목 2</h3>
+                    <p>검사 일자: 2024-12-02</p>
+                    <p>검사 결과: 불합격</p>
+                    <button class="view-details">상세 보기</button>
+                </div>
+                <!-- 추가 검사 항목들 -->
+            </section>
+            
+            <!-- 품질 검사 추가 -->
+            <section class="add-quality">
+                <h2>품질 검사 추가</h2>
+                <form id="addQualityForm">
+                    <input type="text" placeholder="검사 항목명" required>
+                    <input type="date" placeholder="검사 일자" required>
+                    <select required>
+                        <option value="합격">합격</option>
+                        <option value="불합격">불합격</option>
+                    </select>
+                    <button type="submit">추가</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <script>
+        function goHome() {
+            window.location.href = "index.html"; // index.html로 이동
+        }
+    </script>
+</body>
+</html>

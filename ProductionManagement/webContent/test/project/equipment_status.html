@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설비 현황</title>
+    <link rel="stylesheet" href="equipment_status.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/icons1.png">
+</head>
+<body>
+    <div id="equipmentStatusPage">
+        <header>
+            <div id="sidebar">
+                <!-- 홈 버튼에 툴팁 추가 -->
+                <div class="tooltip">
+                    <button id="homeButton" onclick="goHome()"> 
+                        <img src="images/homeicon.png" alt="홈 아이콘" class="icon">
+                    </button>
+                </div>  
+                              
+            </div>
+        </header>
+            <div class="page-content">
+            <section class="equipment-list">
+                <h2>현재 설비 상태</h2>
+                <ul id="equipmentStatusList">
+                    <!-- 설비 상태 리스트는 JavaScript로 동적으로 추가 -->
+                </ul>
+            </section>
+
+            <section class="add-equipment">
+                <h2>설비 추가</h2>
+                <form id="addEquipmentForm">
+                    <input type="text" id="equipmentName" placeholder="설비 이름을 입력하세요" required>
+                    <button type="submit">설비 추가</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <!-- goHome 함수 추가 -->
+    <script>
+        function goHome() {
+            window.location.href = "index.html"; // index.html로 이동
+        }
+    </script>    
+    <script src="equipment_status.js"></script>
+    <div id="time"></div>
+    <script src="time.js"></script>
+    <script src="page.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+/* 기본 페이지 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ada8a8;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    height: 100vh; /* 화면 전체 높이 */
+}
+
+/* 생산 일정 페이지 스타일 */
+#schedulePage {
+    max-width: 900px; /* 최대 너비를 줄여서 흰 부분 줄이기 */
+    width: 90%; /* 너비를 90%로 설정하여 여백을 줄임 */
+    padding: 10px; /* 여백을 줄여서 크기를 작게 설정 */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    justify-content: flex-start; /* 위쪽 정렬 */
+    position: relative; /* 자식 요소를 상대적으로 배치하기 위해 추가 */
+}
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%; /* 너비 100%로 설정 */
+    margin-bottom: 15px; /* 상단 여백을 조금 줄임 */
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 10px; /* 하단 여백을 줄임 */
+}
+
+header h1 {
+    font-size: 1.8rem; /* 제목 크기 약간 줄임 */
+    color: #333;
+    margin: 0;
+}
+
+/* 생산 일정 컨테이너 */
+.schedule-container {
+    background-color: #fff;
+    padding: 15px; /* 안쪽 여백을 줄임 */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px; /* 아래쪽 여백을 줄임 */
+    width: 100%; /* 너비를 100%로 설정 */
+    max-width: 900px; /* 최대 너비 제한 */
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+.schedule-container h2 {
+    font-size: 1.6rem; /* 제목 크기 조금 줄임 */
+    margin-bottom: 15px; /* 상단 여백 줄임 */
+}
+
+/* 일정 항목 스타일 */
+.schedule-item {
+    background-color: #e3f2fd;
+    padding: 12px; /* 안쪽 여백을 줄임 */
+    margin-bottom: 15px; /* 아래쪽 여백을 줄임 */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.schedule-item h3 {
+    font-size: 1.4rem; /* 제목 크기 약간 줄임 */
+    color: #333;
+}
+
+.schedule-item p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* 생산 일정 추가 폼 */
+.add-schedule {
+    background-color: #fff;
+    padding: 15px; /* 안쪽 여백을 줄임 */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* 너비를 고정값으로 설정 */
+    position: absolute; /* 절대 위치로 배치 */
+    top: 10px; /* 상단에서 10px */
+    right: 10px; /* 오른쪽에서 10px */
+}
+
+.add-schedule h2 {
+    font-size: 1.6rem; /* 제목 크기 조금 줄임 */
+    margin-bottom: 15px; /* 상단 여백을 줄임 */
+}
+
+.add-schedule form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-schedule input {
+    padding: 8px; /* 안쪽 여백을 줄임 */
+    margin-bottom: 8px; /* 아래쪽 여백을 줄임 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.add-schedule button {
+    padding: 10px; /* 안쪽 여백을 줄임 */
+    background-color: #76eb9d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.add-schedule button:hover {
+    background-color: #4cc273;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    #schedulePage {
+        padding: 5px; /* 여백을 더 줄임 */
+    }
+
+    /* 모바일에서 생산 일정 추가 폼 숨기기 */
+    .add-schedule {
+        display: none;
+    }
+
+    .add-schedule form input,
+    .add-schedule form button {
+        width: 100%;
+    }
+
+    .schedule-container {
+        padding: 10px; /* 여백을 더 줄임 */
+    }
+
+    .schedule-item {
+        padding: 8px; /* 여백을 더 줄임 */
+    }
+}
+

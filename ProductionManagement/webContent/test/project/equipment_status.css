@@ -1,0 +1,199 @@
+/* 기본 페이지 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ada8a8;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    height: 100vh; /* 화면 전체 높이 */
+}
+
+/* 설비 현황 페이지 스타일 */
+#equipmentStatusPage {
+    max-width: 1200px;
+    width: 100%; /* 화면 크기에 맞게 너비 조정 */
+    margin: 30px; /* 상하 여백 */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수평 중앙 정렬 */
+}
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    justify-content: space-between; /* 좌우 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 100%; /* 너비 100%로 설정 */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 15px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #333;
+    margin: 0;
+}
+
+#closeButton {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#closeButton:hover {
+    background-color: #d32f2f;
+}
+
+/* 설비 상태 리스트 */
+.equipment-list h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#equipmentStatusList {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%; /* 최대 너비를 100%로 설정 */
+}
+
+#equipmentStatusList li {
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+#equipmentStatusList li:hover {
+    transform: translateY(-5px);
+    background-color: #bbdefb;
+}
+
+#equipmentStatusList li span {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+#equipmentStatusList li button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#equipmentStatusList li button:hover {
+    background-color: #d32f2f;
+}
+
+/* 설비 추가 폼 */
+.add-equipment {
+    margin-top: 40px;
+}
+
+.add-equipment input {
+    padding: 12px;
+    width: calc(100% - 120px);
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.add-equipment button {
+    padding: 12px 20px;
+    background-color: #76eb9d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.add-equipment button:hover {
+    background-color: #4cc273;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    #inspectionPage {
+        padding: 15px; /* 여백 축소 */
+    }
+
+    header h1 {
+        font-size: 1.8rem; /* 헤더 글씨 크기 축소 */
+    }
+
+    .inspection-item {
+        padding: 10px; /* 항목 여백 축소 */
+        margin-bottom: 8px; /* 항목 간격 축소 */
+    }
+
+    .inspection-item h3 {
+        font-size: 1.2rem; /* 항목 제목 크기 축소 */
+    }
+
+    .inspection-item p {
+        font-size: 0.9rem; /* 항목 설명 크기 축소 */
+    }
+    
+    .inspection-item a {
+        font-size: 0.9rem; /* 링크 크기 축소 */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem; /* 더 작은 화면에서 헤더 글씨 크기 축소 */
+    }
+
+    .inspection-item h3 {
+        font-size: 1rem; /* 항목 제목 크기 축소 */
+    }
+
+    .inspection-item p {
+        font-size: 0.8rem; /* 항목 설명 크기 축소 */
+    }
+
+    .inspection-item a {
+        font-size: 0.8rem; /* 링크 크기 축소 */
+    }
+
+    #inspectionPage {
+        width: 100%; /* 화면 너비를 꽉 채우도록 설정 */
+        padding: 10px;
+    }
+    
+    /* 항목들이 세로로 너무 길어지지 않게 처리 */
+    .inspection-container {
+        gap: 5px; /* 항목 사이 간격 축소 */
+    }
+    
+    /* 텍스트 정렬 개선 */
+    .inspection-item {
+        text-align: left; /* 텍스트 왼쪽 정렬 */
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <div id="sidebar">
+        <button id="homeButton" onclick="goHome()"> 
+            <img src="images/homeicon.png" alt="홈 아이콘" class="icon">
+        </button>
+    </div>
+    <meta charset="utf-8">
+    <title>설비 점검 상세보기</title>
+    <meta name="Equipment Inspection Detail" content="설비 점검 상세보기 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons1.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inspectionDetailPage.css">
+</head>
+<body>
+    <div id="inspectionDetailPage">
+        
+        <div class="page-content">
+            <header>
+                <h1>설비 점검 상세보기</h1>
+            </header>
+
+            <section class="inspection-detail-container">
+                <h2 id="machineName">기계 이름</h2>
+                <p><strong>점검 날짜:</strong> <span id="inspectionDate">2024-12-01</span></p>
+                <p><strong>점검 상태:</strong> <span id="inspectionStatus">양호</span></p>
+                <p><strong>점검 담당자:</strong> <span id="inspectionOfficer">홍길동</span></p>
+                <h3>점검 이력</h3>
+                <ul id="inspectionHistory">
+                    <!-- 점검 이력 항목들 -->
+                </ul>
+
+                <h3>점검 추가</h3>
+                <form id="addInspectionRecordForm">
+                    <input type="date" placeholder="점검 날짜" required>
+                    <input type="text" placeholder="점검 내용" required>
+                    <input type="text" placeholder="담당자" required>
+                    <button type="submit">추가</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <script src="inspectionDetail.js"></script>
+</body>
+</html>

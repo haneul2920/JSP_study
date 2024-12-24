@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>자원 관리</title>
+    <meta name="Resource Management" content="자원 관리 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons1.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resourceManagement.css">
+</head>
+<body>
+    <div id="resourceManagementPage">
+        <!-- 사이드바 -->
+        <div id="sidebar">
+            <button id="homeButton" onclick="goHome()"> 
+                <img src="images/homeicon.png" alt="홈 아이콘" class="icon">
+            </button>
+        </div>
+
+        <!-- 자원 관리 페이지 내용 -->
+        <div class="page-content">
+            <header>
+                <h1>자원 관리</h1>
+            </header>
+
+            <!-- 자원 목록 -->
+            <section class="resource-container" id="resourceList">
+                <h2>자원 목록</h2>
+                <!-- 자원 항목들이 동적으로 추가될 곳 -->
+            </section>
+
+            <!-- 자원 추가 폼 -->
+            <section class="add-resource">
+                <h2>자원 추가</h2>
+                <form id="addResourceForm">
+                    <input type="text" placeholder="자원명" id="resourceName" required>
+                    <input type="number" placeholder="수량" id="resourceQuantity" required>
+                    <input type="text" placeholder="위치" id="resourceLocation" required>
+                    <button type="submit">추가</button>
+                </form>
+            </section>
+
+            <!-- 자원 수정 폼 (숨김 처리) -->
+            <section class="edit-resource" id="editResourceForm" style="display: none;">
+                <h2>자원 수정</h2>
+                <form id="editResourceDetails">
+                    <input type="text" id="editName" placeholder="자원명" required>
+                    <input type="number" id="editQuantity" placeholder="수량" required>
+                    <input type="text" id="editLocation" placeholder="위치" required>
+                    <button type="submit">수정 완료</button>
+                </form>
+                <button onclick="cancelEdit()">취소</button>
+            </section>
+        </div>
+    </div>
+
+    <script src="resourceManagement.js"></script> <!-- 외부 JS 파일 연결 -->
+    <script src="time.js"></script>
+    <div class="page-transition"></div>
+    <script src="page.js"></script>
+</body>
+</html>

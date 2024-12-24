@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>생산 관리</title>
+    <meta name="Production management" content="생산 관리 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons1.png">
+    <link rel="stylesheet" href="style.css">
+    <script>
+         window.open("popUp.html","pop1","width=500, height=525, left=300, top=50");
+    </script>
+</head>
+
+<body>
+
+    <div id="home">     
+        <div id="sidebar">
+            <button id="homeButton" onclick="goHome()"> 
+                <img src="images/homeicon.png" alt="홈 아이콘" class="icon">
+            </button>
+            <button id="Community">
+                <img src="images/icons8-게시판-150.png" alt="게시판 아이콘" class="icon">
+            </button>
+            <button id="addMember" href="addMember.html">
+            	<img src="images/icons8-사용자-64.png" alt="회원 가입" class="icon">
+            </button>
+            
+        </div>
+    </div>
+    <div id="time"></div>
+    <script src="time.js"></script>
+    <div class="page-content">
+        <div class="button-container">
+            <a class="button button-1" href="equipment_status.html" >
+                <img src="images/iconscnc.png" alt="아이콘" class="icon_button ">
+                <span class="arrow"></span>설비 현황</a>
+            <a class="button button-2" href="productionSchedule.html">
+                <img src="images/icons8-방-파인더-80.png" alt="아이콘" class="icon_button ">
+                <span class="arrow"></span>생산 일정</a>
+            <a class="button button-3" href="equipment_check.html">
+                <img src="images/icons8-수리-100.png" alt="아이콘" class="icon_button ">
+                <span class="arrow"></span>설비 점검</a>
+            <a class="button button-4" href="qualityControl.html">
+                <img src="images/icons8-돋보기-128.png" alt="아이콘" class="icon_button ">
+                <span class="arrow"></span>품질 관리</a>
+            <a class="button button-5" href="resourceManagement.html">
+                <img src="images/icons8-건축-자재-128.png" alt="아이콘" class="icon_button ">
+                <span class="arrow"></span>자원 관리</a>
+            <a class="button button-6" href="productionReport.html">
+                <img src="images/icons8-생산-100.png" alt="아이콘" class="icon_button ">
+                <span class="arrow"></span>생산 보고</a>
+        </div><!-- /.button-container -->
+    </div>
+    <div class="page-transition"></div>
+    <script src="page.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 페이지가 로드되었을 때 페이지 애니메이션 추가
+            $(".page").addClass("show");
+
+            // 링크 클릭 시 페이드아웃 효과와 페이지 전환
+            $("a#link").on("click", function (e) {
+                e.preventDefault(); // 기본 링크 동작 방지
+                const targetUrl = $(this).attr("href"); // 링크의 대상 URL 가져오기
+
+                // body에 fade-out 클래스 추가
+                $("body").addClass("fade-out");
+
+                // 페이지 전환 효과 활성화
+                $(".page-transition").addClass("active");
+
+                // 애니메이션 후 페이지 이동
+                setTimeout(function () {
+                    window.location.href = targetUrl; // 대상 URL로 이동
+                }, 500); // 0.5초 후 이동
+            });
+        });
+    </script>
+</body>

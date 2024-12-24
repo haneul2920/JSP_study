@@ -1,0 +1,347 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto; /* 세로 스크롤 허용 */
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+.page-content {
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out; /* 페이지 전환 효과 */
+}
+
+#home {
+    background-image: url('images/factory.jpg'); /* 이미지 경로 */
+    background-size: cover; /* 크기 조정 */
+    background-position: center; /* 중앙 정렬 */
+    background-repeat: no-repeat; /* 반복 방지 */
+    height: 100%; /* 전체 화면 높이 */
+    width: 100%; /* 전체 화면 너비 */
+    position: relative; /* 가상 요소를 배치하기 위해 relative로 설정 */
+    
+}
+
+/* 배경 이미지에 검정색 오버레이 추가 */
+#home::after {
+    content: ""; /* 내용은 비워둡니다 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* 반투명 검정색 오버레이 */
+    z-index: 0; /* 배경 이미지보다 아래에 배치 */
+}
+
+/* 배경 텍스트 스타일 */
+#home::before {
+    content: "실시간 생산 관리와\A성과 분석을 위한 최적의 도구"; /* \A를 사용하여 줄바꿈 문자 추가 */
+    color: #f0f0f0;  /* 글자 색을 밝게 조정 */
+    grid-template-columns: repeat(3, 1fr);
+    font-weight: bold;
+    text-align: left; /* 왼쪽 정렬 */
+    font-size: 30px;
+    position: absolute;
+    top: 20%; /* 화면 상단에서 20% 위치로 변경하여 텍스트 높이를 올림 */
+    left: 10%; /* 왼쪽 중앙에 위치시키기 위해 10% 거리 두기 */
+    transform: translateY(-50%); /* 수직 중앙 정렬 */
+    width: 80%; /* 너비 설정 */
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 1; /* 버튼들이 이 위에 오게 하기 위한 설정 */
+    white-space: pre-line; /* 줄바꿈을 처리하기 위해 추가 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 추가 */
+}
+/* 버튼 스타일 및 배치 */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 열로 버튼 배치 */
+    gap: 50px; /* 버튼 사이 간격 */
+    justify-items: center; /* 버튼을 중앙 정렬 */
+    position: absolute; /* 화면에서 고정 위치 */
+    top: 60%; /* 화면 중앙 아래로 약간 내려서 버튼 배치 */
+    left: 50%; 
+    transform: translate(-50%, -50%); /* 정확히 중앙에 배치 */
+    width: 60%; /* 전체 너비의 60% 크기 */
+    text-align: center;
+    z-index: 2; /* 버튼들이 배경 텍스트 위에 오게 하기 위한 설정 */
+}
+
+/* 각 버튼 스타일 */
+.button {
+    display: inline-block;
+    padding: 30px 60px;
+    width: 150px;  /* 버튼의 고정 너비 */
+    height: 80px;  /* 버튼의 고정 높이 */
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    position: relative; /* 화살표 배치를 위한 상대적 위치 설정 */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease-in-out; /* 부드럽게 움직이는 트랜지션 추가 */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* 반투명 흰색 테두리 */
+}
+
+.button:hover {
+    opacity: 0.8; /* 호버 시 버튼이 약간 투명해짐 */
+    transform: translateY(-15px);
+    border-color: white; /* 호버 시 테두리 색상 변경 */
+}
+
+/* 각 버튼에 다른 색상 적용 */
+.button-1 {
+    background: linear-gradient(to right, #4db8ff, #0066cc);
+}
+
+.button-2 {
+    background: linear-gradient(to right, rgb(183, 214, 186), #ffb84d);
+}
+
+.button-3 {
+    background: linear-gradient(to right, #df5b5b, #bb2828);
+}
+
+.button-4 {
+    background: linear-gradient(to right, #76eb9d, #4cc273);
+}
+
+.button-5 {
+    background: linear-gradient(to right, #c562ac, #882a70);
+}
+
+.button-6 {
+    background: linear-gradient(to right, rgb(131, 120, 128), #3f343c);
+}
+/* 화살표 스타일 */
+.arrow {
+    position: absolute;
+    bottom: 10px; /* 버튼의 아래쪽에 위치 */
+    right: 10px;  /* 버튼의 오른쪽에 위치 */
+    font-size: 10px; /* 화살표 크기 */
+    color: white;
+}
+
+/* 화살표 모양을 직접 생성 */
+.arrow::after {
+    content: '>'; /* 화살표 모양 */
+    font-size: 40px;
+    color: white;
+}
+
+/* 사이드바 스타일 */
+#sidebar {
+    width: 50px;
+    height: 100vh;
+    background-color: #007BFF;
+    padding: 10; 
+    display: flex;
+    align-items: flex-start;
+    position: fixed;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+.icon_button {
+    width: 50px;  /* 아이콘 크기 */
+    height: 50px; /* 아이콘 크기 */
+    margin-right: 10px; /* 아이콘과 텍스트 간 간격 */
+    object-fit: contain;
+}
+
+.icon {
+    width: 100%;  /* 아이콘 크기 */
+    height: 100%; /* 아이콘 크기 */
+    object-fit: contain; /* 이미지 비율 유지 */
+}
+
+/* 홈 버튼 스타일 */
+#homeButton {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+#homeButton:hover {
+    background-color: #0056b3;
+}
+#Community{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+#Community:hover {
+    background-color: #0056b3;
+}
+
+#addMember{
+	width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+#addMember:hover {
+	background-color: #0056b3;
+}
+
+#time {
+    position: fixed;
+    top: 30px; /* 화면 상단에서 10px 위치 */
+    right: 30px; /* 화면 오른쪽에서 20px 위치 */
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정색 배경 */
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 10; /* 다른 요소들 위에 표시되도록 설정 */
+}
+/* 페이지 전체 전환 애니메이션 */
+.page {
+    opacity: 0;
+    transform: translateY(10px); /* 페이지가 살짝 아래에서 올라오는 효과 */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* 페이지가 보일 때 */
+.page.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+
+/* 페이지 전환을 위한 스타일 */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* 투명한 배경을 덧씌우기 */
+    opacity: 0;
+    z-index: 100;  /* 페이지 전환 효과가 다른 콘텐츠 위에 오도록 */
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/* 페이지 전환 중 opacity가 1로 변하면서 천천히 사라짐 */
+.page-transition.active {
+    opacity: 1;
+}
+
+/* 링크 호버 애니메이션 */
+a {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+    transform: translateY(-5px);
+    opacity: 0.8;
+}
+.page.fade-in {
+    animation: fadeIn 1s ease-out forwards; /* fade-in 애니메이션 */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* 반응형 디자인: 모바일 스타일 */
+@media (max-width: 768px) {
+    #home::before {
+        font-size: 18px; /* 텍스트 크기 축소 */
+        left: 5%; /* 좌우 여백 줄이기 */
+        width: 90%; /* 전체 너비 사용 */
+    }
+
+    .button-container {
+        grid-template-columns: repeat(2, 1fr); /* 버튼을 두 열로 배치 */
+        gap: 20px; /* 버튼 사이 간격 축소 */
+        top: 70%; /* 버튼 위치 조정 */
+        width: 60%; /* 너비 조정 */
+    }
+
+    .button {
+        width: 100px; /* 버튼 크기 축소 */
+        height: 60px;
+        font-size: 14px; /* 글자 크기 조정 */
+        padding: 20px 30px;
+    }
+
+    .arrow {
+        bottom: 5px; /* 화살표 위치 조정 */
+        right: 5px;
+        font-size: 8px; /* 크기 축소 */
+    }
+
+    #sidebar {
+        width: 40px; /* 사이드바 너비 축소 */
+    }
+
+    .icon_button {
+        width: 40px;
+        height: 40px;
+    }
+
+    #time {
+        top: 10px; /* 시계 위치 조정 */
+        right: 10px;
+        font-size: 20px; /* 시계 크기 축소 */
+    }
+}
+
+/* 작은 모바일 기기용 */
+@media (max-width: 480px) {
+    .button-container {
+        grid-template-columns: 1fr; /* 버튼을 한 열로 배치 */
+        gap: 10px;
+    }
+
+    .button {
+        width: 100%; /* 너비 100% */
+        height: auto; /* 자동 높이 */
+        padding: 15px 20px;
+    }
+
+    #home::before {
+        font-size: 16px;
+        text-align: center; /* 중앙 정렬 */
+    }
+
+    #sidebar {
+        width: 30px;
+    }
+
+    .icon_button {
+        width: 30px;
+        height: 30px;
+    }
+
+    #time {
+        font-size: 18px;
+    }
+}

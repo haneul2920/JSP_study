@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생산 보고</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="productionReport.css">
+    <link rel="icon" type="image/png" href="images/icons1.png">
+</head>
+<body>
+    <div id="reportPage">
+        <!-- 사이드바 -->
+        <div id="sidebar">
+            <button id="homeButton" onclick="goHome()"> 
+                <img src="images/homeicon.png" alt="홈 아이콘" class="icon">
+            </button>
+        </div>
+
+        <!-- 생산 보고 헤더 -->
+        <div class="page-content">
+            <header>
+                <h1>생산 보고</h1>
+            </header>
+
+            <!-- 보고서 목록 -->
+            <section class="report-list">
+                <h2>오늘의 생산 보고서</h2>
+                <div class="report-item" id="report1">
+                    <h3>보고서 1</h3>
+                    <p>작업 시작: 08:00</p>
+                    <p>작업 종료: 12:00</p>
+                    <p>생산량: 100개</p>
+                    <button class="view-button" onclick="viewReport('report1')">상세보기</button>
+                    <button class="delete-button" onclick="deleteReport('report1')">삭제</button>
+                </div>
+                <div class="report-item" id="report2">
+                    <h3>보고서 2</h3>
+                    <p>작업 시작: 13:00</p>
+                    <p>작업 종료: 17:00</p>
+                    <p>생산량: 150개</p>
+                    <button class="view-button" onclick="viewReport('report2')">상세보기</button>
+                    <button class="delete-button" onclick="deleteReport('report2')">삭제</button>
+                </div>
+                <!-- 추가 보고서 항목들 -->
+            </section>
+
+            <!-- 생산 보고서 추가 -->
+            <section class="add-report">
+                <h2>생산 보고서 추가</h2>
+                <form id="addReportForm" onsubmit="addReport(event)">
+                    <input type="text" id="reportTitle" placeholder="보고서 제목" required>
+                    <input type="time" id="startTime" placeholder="작업 시작 시간" required>
+                    <input type="time" id="endTime" placeholder="작업 종료 시간" required>
+                    <input type="number" id="productionAmount" placeholder="생산량" required>
+                    <button type="submit">추가</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script src="report.js"></script>
+</body>
+</html>

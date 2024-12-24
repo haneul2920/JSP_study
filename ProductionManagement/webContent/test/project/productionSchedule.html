@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>생산 일정</title>
+    <meta name="Production Schedule" content="생산 일정 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons1.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="productionSchedule.css">
+</head>
+<body>
+    <div id="schedulePage">
+        <!-- 사이드바 -->
+        <div id="sidebar">
+            <button id="homeButton" onclick="goHome()"> 
+                <img src="images/homeicon.png" alt="홈 아이콘" class="icon">
+            </button>
+        </div>
+
+        <!-- 생산 일정 헤더 -->
+        <div class="page-content">
+            <header>
+                <h1>생산 일정</h1>
+            </header>
+
+            <!-- 생산 일정 내용 -->
+            <section class="schedule-container">
+                <h2>오늘의 생산 일정</h2>
+                <div class="schedule-item">
+                    <h3>기계 1</h3>
+                    <p>작업 시작: 08:00</p>
+                    <p>작업 종료: 12:00</p>
+                    <p>상태: 정상</p>
+                    <p>작업: 조립</p> <!-- 추가된 작업 항목 -->
+                    <button class="delete-btn" onclick="deleteSchedule(this)">삭제</button> <!-- 삭제 버튼 -->
+                </div>
+                <div class="schedule-item">
+                    <h3>기계 2</h3>
+                    <p>작업 시작: 13:00</p>
+                    <p>작업 종료: 17:00</p>
+                    <p>상태: 점검 필요</p>
+                    <p>작업: 검사</p> <!-- 추가된 작업 항목 -->
+                    <button class="delete-btn" onclick="deleteSchedule(this)">삭제</button> <!-- 삭제 버튼 -->
+                </div>
+                <!-- 추가 일정 항목들 -->
+            </section>
+            
+            <!-- 생산 일정 추가 -->
+            <section class="add-schedule">
+                <h2>생산 일정 추가</h2>
+                <form id="addScheduleForm" onsubmit="addSchedule(event)">
+                    <input type="text" placeholder="기계명" id="machineName" required>
+                    <input type="time" placeholder="작업 시작 시간" id="startTime" required>
+                    <input type="time" placeholder="작업 종료 시간" id="endTime" required>
+                    <input type="text" placeholder="작업명" id="task" required> <!-- 작업명 추가 -->
+                    <button type="submit">추가</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <script>
+        function goHome() {
+            window.location.href = "index.html"; // index.html로 이동
+        }
+
+    </script>
+    <script src="time.js"></script>
+    <div class="page-transition"></div>
+    <script src="page.js"></script>
+    <script src="Schedule.js"></script>
+</body>
+</html>

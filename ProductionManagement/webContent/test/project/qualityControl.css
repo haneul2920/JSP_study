@@ -1,0 +1,170 @@
+/* 기본 페이지 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ada8a8;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+/* 품질 관리 페이지 스타일 */
+#qualityControlPage {
+    width: 90%; /* 화면 너비의 90% */
+    max-width: 1000px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    overflow-y: auto; /* 세로 스크롤 */
+    max-height: 100vh; /* 화면을 꽉 채우게 하고 스크롤 활성화 */
+}
+
+/* 품질 관리 항목 */
+.quality-control-container {
+    width: 100%;
+    margin-top: 20px; /* 상단 여백을 줄임 */
+    text-align: left;
+}
+
+.quality-item {
+    background-color: #e3f2fd;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.quality-item h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 5px; /* 항목 제목 아래 여백 추가 */
+}
+
+.quality-item p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.quality-item .view-details {
+    padding: 8px 14px;
+    background-color: #76eb9d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.quality-item .view-details:hover {
+    background-color: #4cc273;
+}
+
+/* 품질 검사 추가 폼 */
+.add-quality {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.add-quality h2 {
+    font-size: 1.6rem; /* 제목 크기 약간 줄임 */
+    margin-bottom: 15px; /* 여백 줄임 */
+}
+
+.add-quality form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-quality input,
+.add-quality select {
+    padding: 8px; /* 입력 필드 크기 축소 */
+    margin-bottom: 12px; /* 여백 축소 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.add-quality button {
+    padding: 10px;
+    background-color: #76eb9d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.add-quality button:hover {
+    background-color: #4cc273;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    #qualityControlPage {
+        padding: 15px; /* 여백 줄임 */
+        max-width: 100%; /* 최대 너비를 100%로 설정 */
+    }
+
+    .add-quality {
+        display: none; /* 모바일에서는 품질 검사 추가 폼 숨기기 */
+    }
+
+    .quality-control-container {
+        padding: 15px; /* 여백 줄임 */
+    }
+
+    .quality-item {
+        padding: 10px; /* 여백 축소 */
+    }
+
+    .quality-item h3 {
+        font-size: 1.2rem; /* 제목 크기 축소 */
+    }
+
+    .quality-item p {
+        font-size: 0.9rem; /* 설명 텍스트 크기 축소 */
+    }
+
+    .quality-item .view-details {
+        font-size: 0.9rem; /* 버튼 텍스트 크기 축소 */
+        padding: 6px 12px; /* 버튼 여백 축소 */
+    }
+}
+
+@media (max-width: 480px) {
+    /* 추가적인 모바일 최적화 */
+    .quality-item h3 {
+        font-size: 1.1rem; /* 제목 크기 더 줄임 */
+    }
+
+    .quality-item p {
+        font-size: 0.8rem; /* 설명 텍스트 더 줄임 */
+    }
+
+    .quality-item .view-details {
+        font-size: 0.8rem; /* 버튼 텍스트 더 줄임 */
+        padding: 5px 10px; /* 버튼 여백 더 줄임 */
+    }
+}

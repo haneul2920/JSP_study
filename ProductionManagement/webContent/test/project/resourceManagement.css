@@ -1,0 +1,100 @@
+/* 기본 페이지 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ada8a8;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    height: 100vh; /* 화면 전체 높이 */
+}
+
+/* 자원 관리 페이지 스타일 */
+#resourceManagementPage {
+    width: 80%; /* 너비 80%로 설정 */
+    max-width: 1000px; /* 최대 너비 제한 */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    justify-content: flex-start; /* 위쪽 정렬 */
+    position: relative; /* 자식 요소를 상대적으로 배치하기 위해 추가 */
+}
+/* 자원 목록 컨테이너 */
+.resource-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 한 줄에 4개의 항목 배치 */
+    gap: 15px; /* 자원 간의 간격 */
+    margin-top: 20px;
+}
+
+/* 자원 항목 */
+.resource-item {
+    background-color: #f9f9f9;
+    padding: 10px; /* 항목 안쪽 여백 */
+    margin-bottom: 8px; /* 항목 간 간격 */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+}
+
+/* 자원 항목 제목 */
+.resource-item h3 {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+}
+
+/* 자원 항목 설명 */
+.resource-item p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* 자원 항목 버튼 */
+.resource-item button {
+    padding: 5px 8px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.resource-item .delete-button {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.resource-item .edit-button {
+    background-color: #ffc107;
+    color: white;
+}
+
+.resource-item .increase-quantity-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .resource-container {
+        grid-template-columns: repeat(2, 1fr); /* 화면 크기에 따라 2개씩 배치 */
+    }
+}
+
+/* 자원 수정 폼 */
+.edit-resource {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
